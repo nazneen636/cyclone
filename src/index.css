@@ -1,5 +1,25 @@
 @import "tailwindcss";
 
+/* commom css */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+img{
+  vertical-align: middle;
+}
+ul, ol, li{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+a, span{
+  display: inline-block;
+}
+/* commom css */
+
 :root {
   /* gray */
   --color-gray-900: #191c1f;
@@ -72,6 +92,10 @@
   --color-danger-700: #8f3535;
   --color-danger-800: #5f2323;
   --color-danger-900: #301212;
+
+  /* font */
+  --font-public-sans: "Public Sans", sans-serif;
+  --font-inter:  "Inter", sans-serif;
 }
 
 @theme {
@@ -149,6 +173,207 @@
   --color-danger-900:var(--color-danger-900)
 }
 
-body {
-  background-color: var(--color-primary-500);
+/* font family */
+@theme{
+  --font-public-sans: var(--font-public-sans)
+  --font-inter: var(--font-inter)
 }
+
+.heading1,.heading2,.heading3, .heading4, .display1, .display2, .display3, .display4, .label1, .label2, .label3, .label4, .label5, .body-large-400, .body-large-500, .body-large-600, .body-medium-400, .body-medium-500, .body-medium-600, .body-small-400, .body-small-500, .body-small-600, .body-tiny-400, .body-tiny-500, .body-tiny-600{
+  font-family: var(--font-public-sans);
+}
+/* ========= heading component  =============*/
+.heading1 {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 40px;
+}
+.heading2 {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 32px;
+}
+.heading3 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+.heading4 {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 56px;
+  letter-spacing: 1.2%;
+}
+
+.heading4 {
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 48px;
+  letter-spacing: 1.2%;
+}
+/* ========= heading component  =============*/
+/* ========= display component  =============*/
+.display1 {
+  font-size: 64px;
+  font-weight: 600;
+  line-height: 72px;
+}
+
+.display2 {
+  font-size: 64px;
+  font-weight: 600;
+  line-height: 72px;
+}
+.display3 {
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 64px;
+}
+.display3 {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 48px;
+}
+.display4 {
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 44px;
+}
+/* ========= display component  =============*/
+
+/* ========= label component  =============*/
+.label1 {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 28px;
+}
+
+.label2 {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.label3 {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.label4 {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 150%;
+}
+
+.label5 {
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 16px;
+}
+/* ========= label component  =============*/
+/* ========= body component =============*/
+.body-xxl-400 {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+}
+
+.body-xl-400 {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28px;
+}
+.body-xl-500 {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+}
+.body-xl-600 {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+}
+
+.body-large-400 {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+.body-large-500 {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+.body-large-600 {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.body-medium-400 {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+.body-medium-500 {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+.body-medium-600 {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.body-small-400 {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+}
+.body-small-500 {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}
+.body-small-600 {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+}
+
+.body-tiny-400 {
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 12px;
+}
+.body-tiny-500 {
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 12px;
+}
+.body-tiny-600 {
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 12px;
+}
+
+.body-xs-400 {
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 11px;
+}
+.body-xs-500 {
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 11px;
+}
+.body-xs-600 {
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 11px;
+}
+/* ========= body component =============*/
+
