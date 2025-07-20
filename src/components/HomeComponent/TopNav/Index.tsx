@@ -1,22 +1,15 @@
-import React, { useState, type JSX } from "react";
+import React, { useState } from "react";
 import Container from "../../commonComponent/Container";
-import {
-  reddit,
-  youtube,
-  instagram,
-  pinterest,
-  facebook,
-  twitter,
-} from "../../../helpers/IconsProvider";
+import { icons } from "../../../helpers/IconsProvider";
 
 const TopNav = () => {
-  const [topNav] = useState<Array[JSX.Element]>([
-    reddit,
-    youtube,
-    instagram,
-    pinterest,
-    facebook,
-    twitter,
+  const [topNav] = useState([
+    icons.reddit,
+    icons.youtube,
+    icons.instagram,
+    icons.pinterest,
+    icons.facebook,
+    icons.twitter,
   ]);
   return (
     <div className="bg-secondary-700 py-5!">
@@ -25,9 +18,21 @@ const TopNav = () => {
           <h1 className="body-small-400 text-gray-00">
             Welcome to Clicon online eCommerce store.{" "}
           </h1>
-        </div>
 
-        <div className="body-small-400 text-gray-00">Follow Us</div>
+          <div className="body-small-400 text-gray-00 flex items-center justify-end gap-4">
+            Follow Us
+            <div className="flex gap-3">
+              {topNav?.map((icons, index) => (
+                <span
+                  className="text-[16px] hover:text-warning-500 cursor-pointer hover:scale-110 transition-all"
+                  key={index}
+                >
+                  {icons}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
       </Container>
     </div>
   );
