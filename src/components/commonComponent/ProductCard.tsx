@@ -75,7 +75,7 @@ const ProductCard: React.FC<productCardProps> = ({ status }) => {
           </div>
           {/* product image */}
           <div className="relative group z-40 mt-8! bg-gray-50 rounded-md overflow-hidden border border-gray-100 shadow cursor-pointer">
-            <img src={item.images[0]} alt={item.title} />
+            <img src={item.images[0]} alt={item.title} className="h-[180px]" />
 
             {/* Hover Overlay */}
             <div className="absolute inset-0 flex rounded items-center justify-center gap-x-2 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">

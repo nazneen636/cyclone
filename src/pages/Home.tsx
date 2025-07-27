@@ -6,6 +6,8 @@ import TopNav from "../components/HomeComponent/TopNav/Index";
 import Features from "../components/HomeComponent/Features/Index";
 import ShopByCategory from "../components/HomeComponent/ShopByCategory/Index";
 import FeaturesProduct from "../components/HomeComponent/FeaturesProduct/Index";
+import Arrival from "../components/HomeComponent/Arrival/Index";
+import Offers from "../components/HomeComponent/Offer/Index";
 
 const Home = () => {
   return (
@@ -16,13 +18,19 @@ const Home = () => {
       <div className="shadow">
         <Category />
       </div>
-      <div className="mt-10!">
+      <div className="pt-10!">
         <Banner />
       </div>
       <Features />
       <ShopByCategory />
-      <div className="py-12! mb-10!">
+      <div className="py-12!">
         <FeaturesProduct />
+      </div>
+      <div className="">
+        <Arrival />
+      </div>
+      <div className="py-12!">
+        <Offers />
       </div>
     </div>
   );

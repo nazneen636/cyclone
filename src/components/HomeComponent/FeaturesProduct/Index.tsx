@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Container from "../../commonComponent/Container";
 import { assets } from "../../../helpers/AssetProvider";
 import { icons } from "../../../helpers/IconsProvider";
 import ProductCard from "../../commonComponent/ProductCard";
 import { useQuery } from "@tanstack/react-query";
 import { GetFeaturesProduct } from "../../../api/FeaturesProduct";
+import { motion } from "motion/react";
 import {
   CategoryWiseData,
   GetProductCategory,
@@ -65,13 +66,19 @@ const FeaturesProduct: React.FC = () => {
     <div>
       <Container>
         <div className="grid grid-cols-5 gap-x-6 h-[800px]">
-          <div className="w-full">
+          <motion.div
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: false }}
+            className="h-full"
+          >
             <img
               src={assets.FeaturedBanner}
               alt=""
-              className="w-full h-full object-fit-cover"
+              className="w-full h-full object-cover"
             />
-          </div>
+          </motion.div>
           <div className="col-span-4 h-full">
             {/* heading */}
             <div className="flex justify-between items-center mb-5!">

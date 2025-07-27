@@ -2,6 +2,7 @@ import React from "react";
 import Container from "../../commonComponent/Container";
 import { icons } from "../../../helpers/IconsProvider";
 import { shopByCategory } from "../../../lib/lib";
+import { motion } from "motion/react";
 
 // @ts-ignore
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -37,7 +38,11 @@ const ShopByCategory = () => {
             {" "}
             {shopByCategory.map((item) => (
               <SwiperSlide>
-                <div className="flex items-center justify-center shadow p-6! border border-gray-200 rounded">
+                <motion.div
+                  whileHover={{ scale: 1.2, y: 10, border: 0, boxShadow: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="flex items-center justify-center shadow p-6! border border-gray-200 rounded"
+                >
                   <div key={item.id} className="">
                     {" "}
                     <img src={item.image} alt={item.name} />
@@ -45,22 +50,32 @@ const ShopByCategory = () => {
                       {item.name}
                     </h1>
                   </div>
-                </div>
+                </motion.div>
               </SwiperSlide>
             ))}
           </Swiper>
           {/* arrow */}
           <div className="">
-            <div className="absolute top-1/2 -translate-y-1/2 -left-4 w-10 h-10 rounded-full bg-primary-500 z-50 next">
-              <span className="text-white text-xl flex items-center justify-center ml-[10px]!">
+            <motion.div
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ background: "tomato" }}
+              transition={{ duration: 0.5 }}
+              className="absolute top-1/2 -translate-y-1/2 -left-4 w-10 h-10 rounded-full bg-primary-500 z-50 flex items-center justify-center next"
+            >
+              <span className="text-white text-xl">
                 {icons.sliderPrevArrow}
               </span>
-            </div>
-            <div className="absolute -translate-y-1/2 -right-4 top-1/2 w-10 h-10 rounded-full bg-primary-500 z-50 prev">
-              <span className="text-white text-xl flex items-center justify-center ml-[10px]!">
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ background: "tomato" }}
+              transition={{ duration: 0.5 }}
+              className="absolute -translate-y-1/2 -right-4 top-1/2 w-10 h-10 rounded-full bg-primary-500 z-50 flex items-center justify-center prev"
+            >
+              <span className="text-white text-xl ">
                 {icons.sliderNextArrow}
               </span>
-            </div>
+            </motion.div>
           </div>
           {/* arrow */}
         </div>
