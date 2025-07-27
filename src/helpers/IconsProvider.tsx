@@ -3,7 +3,6 @@ import {
   FaEye,
   FaFacebook,
   FaInstagram,
-  FaPhoneVolume,
   FaPinterestP,
   FaReddit,
   FaStar,

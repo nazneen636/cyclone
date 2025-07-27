@@ -18,7 +18,7 @@ import mobile_5 from "../assets/HomePageAssets/FeatureProduct/5.png";
 import mobile_6 from "../assets/HomePageAssets/FeatureProduct/6.png";
 import mobile_7 from "../assets/HomePageAssets/FeatureProduct/7.png";
 import mobile_8 from "../assets/HomePageAssets/FeatureProduct/8.png";
-import type React from "react";
+import error_1 from "../assets/Error/error.png";
 
 type Assets = {
   [key: string]: string;
@@ -46,4 +46,5 @@ export const assets: Assets = {
   mobile_6: mobile_6,
   mobile_7: mobile_7,
   mobile_8: mobile_8,
+  error_1: error_1,
 };

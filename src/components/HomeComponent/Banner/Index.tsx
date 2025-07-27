@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Container from "../../commonComponent/Container";
 import { assets } from "../../../helpers/AssetProvider";
 import Slider from "../../commonComponent/Slider";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { SwiperSlide } from "swiper/react";
 
 const Banner = () => {
   type bannerTypes = {

@@ -14,18 +14,18 @@ const FeaturesProduct: React.FC = () => {
   const [selectCategory, setSelectedCategory] = useState<string>("all");
   /**
    * @description features product
-   * @return { isPending, isError, data, error }
+   * @return { isPending, isError, data, error, refetch }
    * @version 1.0.0
    */
   // Queries
-  const { isPending, isError, data, error } = useQuery({
+  const { isPending, isError, data, error, refetch } = useQuery({
     queryKey: ["featureProduct"],
     queryFn: GetFeaturesProduct,
   });
 
   /**
    * @description get category data
-   * @return { isPending, isError, data, error }
+   * @return { isPending, isError, data, error, refetch }
    * @version 1.0.0
    */
   const {
@@ -33,6 +33,7 @@ const FeaturesProduct: React.FC = () => {
     isError: isErrorCategory,
     data: categoryData,
     error: errorCategory,
+    refetch: categoryRefetch,
   } = useQuery({
     queryKey: ["Category"],
     queryFn: GetProductCategory,
@@ -109,20 +110,19 @@ const FeaturesProduct: React.FC = () => {
                     ? {
                         isPending,
                         isError,
-                        data: { products: data?.products || [] },
-                        error: errorCategory ? errorCategory : error,
+                        data: { products: data?.products },
+                        error,
+                        refetch,
                       }
                     : {
-                        isPending: isPendingCategory
-                          ? isPendingCategory
-                          : isPending,
-                        isError: isErrorCategory ? isErrorCategory : isError,
+                        isPending: isPendingCategory,
+
+                        isError: isErrorCategory,
                         data: {
-                          products: CategoryProduct?.products
-                            ? CategoryProduct?.products
-                            : data?.products || [],
+                          products: CategoryProduct?.products,
                         },
-                        error: errorCategory ? errorCategory : error,
+                        error: errorCategory,
+                        refetch: categoryRefetch,
                       }
                 }
               />

@@ -1,10 +1,10 @@
 import React from "react";
-import { assets } from "../../helpers/AssetProvider";
 import { icons } from "../../helpers/IconsProvider";
 import ProductSkeleton from "../Skeleton/ProductSkeleton";
 import type { productDataType } from "../../types/productApiData";
 import Star from "./Star";
-import ErrorFetch from "./ErrorFetch";
+import FeatureProductError from "../Error/FeatureProductError";
+import { motion } from "motion/react";
 // import Star from "../../commonComponent/Star";
 type productCardProps = {
   status: {
@@ -12,6 +12,7 @@ type productCardProps = {
     isError: boolean;
     data: any;
     error: any;
+    refetch: () => void;
   };
 };
 
@@ -21,25 +22,49 @@ const ProductCard: React.FC<productCardProps> = ({ status }) => {
     return <ProductSkeleton />;
   }
   if (status.isError) {
-    return <ErrorFetch />;
+    return (
+      <FeatureProductError
+        errorMessage={status.error?.message}
+        onTry={status.refetch}
+      />
+    );
   }
   return (
     <div className="grid grid-cols-4 gap-4">
-      {status.data.products.slice(0, 8).map((item: productDataType) => (
+      {status.data?.products?.slice(0, 8).map((item: productDataType) => (
         <div className="relative rounded border border-gray-200 shadow flex flex-col  justify-center p-4!  ">
           {/* badge */}
           <div className="">
             {item.discountPercentage > 0 && (
-              <p className="absolute top-2 right-2 bg-warning-400 body-small-600 text-gray-900 py-2! px-2! rounded z-50">
+              <motion.button
+                initial={{
+                  scale: 1,
+                  backgroundColor: "var(--color-primary-500)",
+                }}
+                animate={{
+                  scale: [1, 1.1, 1],
+                  backgroundColor: [
+                    "var(--color-warning-400)",
+                    "var(--color-warning-500)",
+                    "var(--color-warning-400)",
+                  ],
+                }}
+                transition={{
+                  duration: 1.5,
+                  ease: "easeInOut",
+                  repeat: Infinity,
+                }}
+                className="absolute top-2 right-2 body-small-600 text-gray-900 py-2! px-2! rounded z-50"
+              >
                 {item.discountPercentage}% OFF
-              </p>
+              </motion.button>
             )}
-            {item.stock >= 90 ? (
-              <p className="absolute top-2 left-2 bg-danger-500 body-small-600 text-gray-00 py-2! px-2! rounded z-50">
+            {item.stock >= 50 ? (
+              <p className="absolute top-2 left-2 bg-danger-500 body-small-600 text-gray-00 py-2! px-2! rounded z-20">
                 BEST DEAL
               </p>
-            ) : item.stock >= 50 ? (
-              <p className="absolute top-2 left-2 bg-secondary-500 body-small-600 text-gray-00 py-2! px-2! rounded z-50">
+            ) : item.stock <= 10 ? (
+              <p className="absolute top-2 left-2 bg-secondary-500 body-small-600 text-gray-00 py-2! px-2! rounded z-20">
                 SALE
               </p>
             ) : (
@@ -49,11 +74,11 @@ const ProductCard: React.FC<productCardProps> = ({ status }) => {
             )}
           </div>
           {/* product image */}
-          <div className="relative group z-40 transition-all mt-6! ">
-            <img src={item.images[0]} alt="" />
+          <div className="relative group z-40 mt-8! bg-gray-50 rounded-md overflow-hidden border border-gray-100 shadow cursor-pointer">
+            <img src={item.images[0]} alt={item.title} />
 
             {/* Hover Overlay */}
-            <div className="absolute inset-0 flex items-center justify-center gap-x-2 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity">
+            <div className="absolute inset-0 flex rounded items-center justify-center gap-x-2 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <div className="bg-white text-gray-800 text-lg w-10 h-10 flex items-center justify-center cursor-pointer rounded-full shadow-md hover:bg-primary-500 hover:text-white transition-all">
                 <span>{icons.cart}</span>
               </div>
@@ -66,7 +91,7 @@ const ProductCard: React.FC<productCardProps> = ({ status }) => {
             </div>
           </div>
 
-          <div className="mt-6!">
+          <div className="mt-2!">
             {/* review and star */}
             <div className="flex items-center gap-x-2">
               <div>

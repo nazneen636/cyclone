@@ -21,7 +21,7 @@ const Home = () => {
       </div>
       <Features />
       <ShopByCategory />
-      <div className="py-12!">
+      <div className="py-12! mb-10!">
         <FeaturesProduct />
       </div>
     </div>
