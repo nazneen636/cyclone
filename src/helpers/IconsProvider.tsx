@@ -1,5 +1,6 @@
 import { AiOutlineHeart } from "react-icons/ai";
 import {
+  FaApple,
   FaEye,
   FaFacebook,
   FaInstagram,
@@ -22,6 +23,7 @@ import React from "react";
 import { CgCreditCard } from "react-icons/cg";
 import { GoTrophy } from "react-icons/go";
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
+import { BiLogoPlayStore } from "react-icons/bi";
 
 type iconsType = {
   [key: string]: React.ReactNode;
@@ -53,4 +55,6 @@ export const icons: iconsType = {
   sliderNextArrow: <FaArrowRightLong />,
   star: <FaStar />,
   eye: <FaEye />,
+  playStore: <BiLogoPlayStore />,
+  apple: <FaApple />,
 };

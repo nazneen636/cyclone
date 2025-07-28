@@ -24,6 +24,7 @@ const ProductCard: React.FC<productCardProps> = ({ status }) => {
   if (status.isError) {
     return (
       <FeatureProductError
+        className="h-[750px]"
         errorMessage={status.error?.message}
         onTry={status.refetch}
       />

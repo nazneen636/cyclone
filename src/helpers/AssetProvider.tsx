@@ -33,6 +33,12 @@ import n_arrival_3 from "../assets/HomePageAssets/arrival/n_arrival_3.png";
 import t_rate_1 from "../assets/HomePageAssets/arrival/t_rate_1.png";
 import t_rate_2 from "../assets/HomePageAssets/arrival/t_rate_2.png";
 import t_rate_3 from "../assets/HomePageAssets/arrival/t_rate_3.png";
+import footerLogo from "../assets/HomePageAssets/footer_Logo.png";
+import google from "../assets/icons/google.png";
+import amazon from "../assets/icons/amazon.png";
+import philips from "../assets/icons/philips.png";
+import toshiba from "../assets/icons/toshiba.png";
+import samsung from "../assets/icons/samsung.png";
 
 type Assets = {
   [key: string]: string;
@@ -75,4 +81,10 @@ export const assets: Assets = {
   t_rate_1: t_rate_1,
   t_rate_2: t_rate_2,
   t_rate_3: t_rate_3,
+  footerLogo: footerLogo,
+  google: google,
+  amazon: amazon,
+  philips: philips,
+  toshiba: toshiba,
+  samsung: samsung,
 };

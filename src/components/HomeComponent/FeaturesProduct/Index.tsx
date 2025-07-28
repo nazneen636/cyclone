@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import Container from "../../commonComponent/Container";
 import { assets } from "../../../helpers/AssetProvider";
 import { icons } from "../../../helpers/IconsProvider";

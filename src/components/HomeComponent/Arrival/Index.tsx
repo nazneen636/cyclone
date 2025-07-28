@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { assets } from "../../../helpers/AssetProvider";
 import Container from "../../commonComponent/Container";
 import { motion } from "motion/react";

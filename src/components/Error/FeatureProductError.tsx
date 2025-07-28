@@ -4,11 +4,13 @@ import { assets } from "../../helpers/AssetProvider";
 type FeatureProductErrorProps = {
   errorMessage?: string;
   onTry: () => void;
+  className: string;
 };
 
 const FeatureProductError: React.FC<FeatureProductErrorProps> = ({
   errorMessage = "Something went wrong while loading the products.",
   onTry,
+  className,
 }) => {
   const [loading, setLoading] = React.useState(false);
 
@@ -21,12 +23,14 @@ const FeatureProductError: React.FC<FeatureProductErrorProps> = ({
     }
   };
   return (
-    <div className="w-full h-[800px] flex flex-col gap-2 items-center justify-center bg-red-50 rounded-lg p-6! text-center shadow">
+    <div
+      className={`w-full flex flex-col gap-2 items-center justify-center bg-red-50 rounded-lg p-6! text-center shadow ${className}`}
+    >
       {/* Illustration Image */}
       <img
         src={assets.error_1} // Place this SVG or image in your public/images/ folder
         alt="Error illustration"
-        className="w-full max-w-[400px] mb-4 animate-pulse"
+        className="w-full max-w-[200px] mb-4 animate-pulse"
       />
 
       <h2 className="text-2xl font-semibold text-danger-600 mb-2">

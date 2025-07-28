@@ -1,13 +1,63 @@
 import type { fullApiType } from "../types/productApiData";
 
-export const GetOfferData = async (): Promise<fullApiType> => {
+type propsType = {
+  limit: number;
+  skip: number;
+};
+export const GetFlashSellOfferData = async ({
+  limit,
+  skip,
+}: propsType): Promise<fullApiType> => {
   try {
     const data = await fetch(
-      "https://dummyjson.com/products?limit=10&skip=10&select=title,price"
+      `https://dummyjson.com/products?limit=${limit}&skip=${skip}`
     ).then((res) => res.json());
     return data;
   } catch (err) {
-    console.log("error in fetching offer data", err);
+    console.log("error in fetching Flash sale offer data", err);
+    throw err;
+  }
+};
+
+export const GetBestSellersData = async ({
+  limit,
+  skip,
+}: propsType): Promise<fullApiType> => {
+  try {
+    const data = await fetch(
+      `https://dummyjson.com/products?limit=${limit}&skip=${skip}`
+    ).then((res) => res.json());
+    return data;
+  } catch (err) {
+    console.log("error in fetching Best Sale offer data", err);
+    throw err;
+  }
+};
+export const GetTopRatedData = async ({
+  limit,
+  skip,
+}: propsType): Promise<fullApiType> => {
+  try {
+    const data = await fetch(
+      `https://dummyjson.com/products?limit=${limit}&skip=${skip}`
+    ).then((res) => res.json());
+    return data;
+  } catch (err) {
+    console.log("error in fetching Top Rated data", err);
+    throw err;
+  }
+};
+export const GetNewArrivalData = async ({
+  limit,
+  skip,
+}: propsType): Promise<fullApiType> => {
+  try {
+    const data = await fetch(
+      `https://dummyjson.com/products?limit=${limit}&skip=${skip}`
+    ).then((res) => res.json());
+    return data;
+  } catch (err) {
+    console.log("error in fetching Top Rated data", err);
     throw err;
   }
 };

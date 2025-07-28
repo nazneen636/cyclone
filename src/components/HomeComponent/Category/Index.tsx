@@ -55,7 +55,7 @@ const Category = () => {
                 <option value="Camera">Camera</option>
                 <option value="Accessories">Accessories</option>
               </select>
-              <span className="absolute text-xl top-1/2 -translate-1/3 -right-[8%] text-gray-700 pr-2!">
+              <span className="absolute  text-xl top-1/2 -translate-1/3 -right-[8%] text-gray-700 pr-2!">
                 {categoryOpen ? icons.upArrow : icons.downArrow}
               </span>
             </div>
