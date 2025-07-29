@@ -11,7 +11,7 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 import { FiHelpCircle, FiRefreshCcw, FiShoppingCart } from "react-icons/fi";
-import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import { IoIosArrowDown, IoIosArrowUp, IoMdClose } from "react-icons/io";
 import {
   IoArrowForwardSharp,
   IoLocationOutline,
@@ -57,4 +57,5 @@ export const icons: iconsType = {
   eye: <FaEye />,
   playStore: <BiLogoPlayStore />,
   apple: <FaApple />,
+  cross: <IoMdClose />,
 };

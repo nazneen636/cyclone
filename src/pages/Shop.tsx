@@ -3,7 +3,7 @@ import Breadcrumb from "../components/commonComponent/Breadcrumb";
 import Container from "../components/commonComponent/Container";
 import { useGetAllProduct } from "../hooks/UseQuery";
 import ProductCard from "../components/commonComponent/ProductCard";
-import { useCategory } from "../hooks/UseCategory";
+import { useCategory, useSingleCategory } from "../hooks/UseCategory";
 import RangeSlider from "react-range-slider-input";
 import type { productDataType } from "../types/productApiData";
 import { assets } from "../helpers/AssetProvider";
@@ -69,6 +69,16 @@ const Shop = () => {
     // refetch: categoryRefetch,
   } = useCategory();
 
+  // handle category
+  const [selectedCategory, setSelectedCategory] = useState<string>("");
+  const singleCategory = useSingleCategory(selectedCategory);
+
+  const handleCategory = (categoryItem: string) => {
+    setSelectedCategory(categoryItem);
+    console.log("category Item", selectedCategory);
+  };
+  console.log(singleCategory, "single");
+
   return (
     <div>
       <Breadcrumb />
@@ -83,7 +93,11 @@ const Shop = () => {
               <div className="h-[40vh] overflow-y-scroll category">
                 <ul className="flex flex-col gap-y-2">
                   {categoryData?.map((item: string, index: number) => (
-                    <li key={index} className="flex gap-3 items-center">
+                    <li
+                      onClick={() => handleCategory(item)}
+                      key={index}
+                      className="flex gap-3 items-center"
+                    >
                       <input
                         type="radio"
                         id={item}
@@ -286,7 +300,34 @@ const Shop = () => {
               </div>
               {/* sort */}
             </div>
-            <div className="bg-gray-50">2</div>
+            <div className="bg-gray-50 grid grid-cols-2 rounded py-3! px-6!">
+              <div className="flex items-center gap-x-4">
+                <h2 className="body-medium-400 text-gray-600">
+                  Active Filters:
+                </h2>
+                <div className="flex items-center gap-x-1">
+                  <span className="body-medium-400 text-gray-900 ">
+                    Electronics Devices
+                  </span>
+                  <span className="text-gray-600 text-sm cursor-pointer">
+                    {icons.cross}
+                  </span>
+                </div>
+                <div className="flex items-center gap-x-1">
+                  <span className="body-medium-400 text-gray-900">
+                    5 Star Rating
+                  </span>
+                  <span className="text-gray-600 text-sm cursor-pointer">
+                    {icons.cross}
+                  </span>
+                </div>
+              </div>
+              <div className="">
+                <h1 className="body-medium-400 text-gray-600 float-right">
+                  <span className="text-gray-900">65,867</span> Results found.
+                </h1>
+              </div>
+            </div>
             <div className="">
               <ProductCard
                 status={{
