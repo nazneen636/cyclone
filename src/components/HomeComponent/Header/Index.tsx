@@ -1,7 +1,6 @@
 import Container from "../../commonComponent/Container";
 import { assets } from "../../../helpers/AssetProvider";
 import { icons } from "../../../helpers/IconsProvider";
-import Button from "../../commonComponent/Button";
 import { Link } from "react-router";
 
 const Header = () => {
@@ -27,7 +26,7 @@ const Header = () => {
             >
               <div className="flex items-center justify-center gap-1">
                 <span className="text-gray-900  heading4">Shop Now </span>
-                <span className="text-gray-900 inline-block text-base  ">
+                <span className="text-gray-900 inline-block text-base">
                   {icons.rightArrow}
                 </span>
               </div>
