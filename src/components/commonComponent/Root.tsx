@@ -12,9 +12,7 @@ const Root = () => {
       <Header />
       <TopNav />
       <Menu />
-      <div className="shadow">
-        <Category />
-      </div>
+      <Category />
       <Outlet />
       <Newsletter />
       <Footer />

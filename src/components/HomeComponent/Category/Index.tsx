@@ -33,14 +33,16 @@ const Category = () => {
   return (
     <div>
       <Container>
-        <div className="!py-3.5 grid grid-cols-2 items-center">
+        <div className="!py-3.5 grid grid-cols-2 items-center shadow">
           <div className="flex gap-x-8 items-center">
             {/* category */}
-            <div className=" relative">
+            <div
+              className="relative"
+              onClick={() => setCategoryOpen(!categoryOpen)}
+            >
               <select
                 name="category"
                 id="category"
-                onClick={() => setCategoryOpen(!categoryOpen)}
                 className="bg-gray-50 body-small-400 px-8! !py-3 appearance-none rounded outline-none cursor-pointer relative "
               >
                 <option className="bg-gray-50 body-small-400" value="Mobile">
@@ -55,7 +57,7 @@ const Category = () => {
                 <option value="Camera">Camera</option>
                 <option value="Accessories">Accessories</option>
               </select>
-              <span className="absolute  text-xl top-1/2 -translate-1/3 -right-[8%] text-gray-700 pr-2!">
+              <span className="absolute cursor-pointer text-xl top-[42%] -translate-1/3 -right-[8%] text-gray-700 pr-2!">
                 {categoryOpen ? icons.upArrow : icons.downArrow}
               </span>
             </div>

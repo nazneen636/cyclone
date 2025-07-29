@@ -39,6 +39,8 @@ import amazon from "../assets/icons/amazon.png";
 import philips from "../assets/icons/philips.png";
 import toshiba from "../assets/icons/toshiba.png";
 import samsung from "../assets/icons/samsung.png";
+import SingleProduct_1 from "../assets/HomePageAssets/singleProduct.png";
+import SingleProduct_2 from "../assets/HomePageAssets/singleProduct_2.png";
 
 type Assets = {
   [key: string]: string;
@@ -87,4 +89,6 @@ export const assets: Assets = {
   philips: philips,
   toshiba: toshiba,
   samsung: samsung,
+  SingleProduct_1: SingleProduct_1,
+  SingleProduct_2: SingleProduct_2,
 };

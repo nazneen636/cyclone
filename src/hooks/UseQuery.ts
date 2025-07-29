@@ -6,6 +6,7 @@ import {
   GetTopRatedData,
 } from "../api/OfferApi";
 import type { queryType } from "../types/queryType";
+import { GetFeaturesProduct } from "../api/FeaturesProduct";
 
 export const useFlashSaleOffer = (): queryType => {
   const {
@@ -61,4 +62,18 @@ export const useNewArrivalData = (): queryType => {
     queryFn: async () => await GetNewArrivalData({ limit: 3, skip: 10 }),
   });
   return { data: NewArrival, refetch, isPending, isError, error };
+};
+
+export const useGetAllProduct = (): queryType => {
+  const {
+    data: allProduct,
+    refetch,
+    isPending,
+    isError,
+    error,
+  } = useQuery({
+    queryKey: ["allProduct"],
+    queryFn: GetFeaturesProduct,
+  });
+  return { data: allProduct, refetch, isPending, isError, error };
 };

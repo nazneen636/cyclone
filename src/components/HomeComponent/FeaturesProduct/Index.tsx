@@ -65,7 +65,7 @@ const FeaturesProduct: React.FC = () => {
   return (
     <div>
       <Container>
-        <div className="grid grid-cols-5 gap-x-6 h-[800px]">
+        <div className="grid grid-cols-5 gap-x-6 ">
           <motion.div
             initial={{ opacity: 0, x: -100 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -76,7 +76,7 @@ const FeaturesProduct: React.FC = () => {
             <img
               src={assets.FeaturedBanner}
               alt=""
-              className="w-full h-full object-cover"
+              className="w-full h-full object-fit-cover"
             />
           </motion.div>
           <div className="col-span-4 h-full">
@@ -115,6 +115,7 @@ const FeaturesProduct: React.FC = () => {
                 status={
                   selectCategory === "all"
                     ? {
+                        fullDataLoaded: false,
                         isPending,
                         isError,
                         data: { products: data?.products },
@@ -122,6 +123,7 @@ const FeaturesProduct: React.FC = () => {
                         refetch,
                       }
                     : {
+                        fullDataLoaded: false,
                         isPending: isPendingCategory,
 
                         isError: isErrorCategory,
