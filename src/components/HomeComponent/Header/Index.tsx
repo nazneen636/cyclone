@@ -21,17 +21,17 @@ const Header = () => {
             </div>
           </div>
           <div className=" flex items-center justify-end">
-            <Button className="bg-warning-500 px-10! rounded shadow-2xl py-5 cursor-pointer hover:bg-warning-400 transition-all">
-              <Link
-                to="/shop"
-                className=" grid auto-cols-max grid-flow-col items-center gap-x-1"
-              >
+            <Link
+              to="/shop"
+              className="bg-warning-500 px-10! rounded shadow-2xl py-5 cursor-pointer hover:bg-warning-400 transition-all"
+            >
+              <div className="flex items-center justify-center gap-1">
                 <span className="text-gray-900  heading4">Shop Now </span>
-                <span className="text-gray-900 inline-block mt-1 text-base">
+                <span className="text-gray-900 inline-block text-base  ">
                   {icons.rightArrow}
                 </span>
-              </Link>
-            </Button>
+              </div>
+            </Link>
           </div>
         </div>
       </Container>
