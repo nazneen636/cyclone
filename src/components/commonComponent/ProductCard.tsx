@@ -18,7 +18,6 @@ type productCardProps = {
 };
 
 const ProductCard: React.FC<productCardProps> = ({ status }) => {
-  console.log(status.data);
   if (status.isPending) {
     return <ProductSkeleton />;
   }
@@ -31,11 +30,13 @@ const ProductCard: React.FC<productCardProps> = ({ status }) => {
       />
     );
   }
+  console.log(status.data || "no data");
+
   return (
-    <div className="grid grid-cols-4 gap-4">
+    <div className="grid grid-cols-4 gap-x-4 gap-y-6">
       {status?.fullDataLoaded
-        ? status.data?.products?.map((item: productDataType) => (
-            <div className="relative rounded border border-gray-200 shadow flex flex-col  justify-center p-4!  ">
+        ? status.data?.map((item: productDataType) => (
+            <div className="relative rounded border border-gray-200 shadow flex flex-col gap-y-4 justify-center p-4!  ">
               {/* badge */}
               <div className="">
                 {item.discountPercentage > 0 && (
@@ -98,7 +99,7 @@ const ProductCard: React.FC<productCardProps> = ({ status }) => {
                 </div>
               </div>
 
-              <div className="mt-2!">
+              <div className="mt-2! flex flex-col gap-y-1">
                 {/* review and star */}
                 <div className="flex items-center gap-x-2">
                   <div>
@@ -111,7 +112,7 @@ const ProductCard: React.FC<productCardProps> = ({ status }) => {
                 </div>
 
                 {/* product details */}
-                <h1 className="body-large-400 text-gray-900 mb-1! truncate ">
+                <h1 className="body-large-400 text-gray-900 mb-1! -mt-[1px]! truncate ">
                   {item.title}
                 </h1>
                 <p className="body-small-400 text-gray-900 truncate mb-1! ">

@@ -62,28 +62,39 @@ const Shop = () => {
   const { data, isPending, isError, refetch, error } = useGetAllProduct();
   const { data: allProduct } = useGetAllProduct();
 
-  const {
-    data: categoryData,
-    // isPending: categoryIsPending,
-    // isError: categoryIsError,
-    // refetch: categoryRefetch,
-  } = useCategory();
+  const { data: categoryData } = useCategory();
 
   // handle category
-  const [selectedCategory, setSelectedCategory] = useState<string>("");
-  const singleCategory = useSingleCategory(selectedCategory);
+  const [selectedCategory, setSelectedCategory] = useState<string>("all");
+  const { data: CategoryProduct, isPending: categoryPending } =
+    useSingleCategory(selectedCategory);
 
   const handleCategory = (categoryItem: string) => {
     setSelectedCategory(categoryItem);
-    console.log("category Item", selectedCategory);
   };
-  console.log(singleCategory, "single");
 
+  // pagination
+  const [page, setPage] = useState<number>(1);
+  const [pagePerShow] = useState<number>(16);
+
+  const totalPage =
+    selectedCategory === "all"
+      ? Math.ceil((data?.products?.length || 0) / pagePerShow)
+      : Math.ceil((CategoryProduct?.products?.length || 0) / pagePerShow);
+
+  //   pagination funtionality
+  const handlePerItem = (index: number) => {
+    if (index > 0 && index <= Math.ceil(totalPage)) {
+      setPage(index);
+    }
+  };
+  // pagination
   return (
     <div>
       <Breadcrumb />
       <Container>
         <div className="grid grid-cols-4 gap-x-4 pt-6!">
+          {/* left side */}
           <div className="">
             {/* category */}
             <div className="border-b-gray-100 border-b! pb-5!">
@@ -332,14 +343,57 @@ const Shop = () => {
               <ProductCard
                 status={{
                   fullDataLoaded: true,
-                  data,
-                  isPending,
+                  data:
+                    selectedCategory == "all"
+                      ? data?.products?.slice(
+                          page * 16 - 16,
+                          page * pagePerShow
+                        )
+                      : CategoryProduct?.products?.slice(
+                          page * 16 - 16,
+                          page * pagePerShow
+                        ),
+                  isPending: categoryPending ? categoryPending : isPending,
                   isError,
                   error,
                   refetch: () => refetch(),
                 }}
               />
             </div>
+
+            {/* pagination */}
+            <div className="my-4!">
+              <div className="flex gap-x-6 items-center justify-center mb-2!">
+                <div
+                  onClick={() => handlePerItem(page - 1)}
+                  className="flex items-center justify-center w-10 h-10 rounded-full  hover:bg-gray-900  cursor-pointer bg-primary-500 text-gray-00 hover:text-gray-00"
+                >
+                  <span>{icons.sliderPrevArrow}</span>
+                </div>
+                <ul className="flex gap-x-2">
+                  {[...Array(totalPage).keys()].map((item) => (
+                    <li
+                      key={item}
+                      onClick={() => handlePerItem(item + 1)}
+                      className={
+                        item + 1 == page
+                          ? "w-10 h-10 rounded-full  hover:bg-gray-900  cursor-pointer bg-primary-500 text-gray-00 hover:text-gray-00 flex items-center justify-center"
+                          : "w-10 h-10 rounded-full  hover:bg-primary-600 border-2 border-gray-100 cursor-pointer hover:text-gray-00 flex items-center justify-center"
+                      }
+                    >
+                      {item + 1}
+                    </li>
+                  ))}
+                </ul>
+                <div
+                  onClick={() => handlePerItem(page + 1)}
+                  className="w-10 h-10 rounded-full  hover:bg-gray-900  cursor-pointer bg-primary-500 text-gray-00 hover:text-gray-00 flex items-center justify-center"
+                >
+                  <span>{icons.sliderNextArrow}</span>
+                </div>
+              </div>
+            </div>
+            {/* pagination */}
           </div>
         </div>
       </Container>
