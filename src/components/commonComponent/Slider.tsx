@@ -49,7 +49,7 @@ const Slider: React.FC<propsType> = ({
       spaceBetween={50}
       slidesPerView={1}
       // grabCursor={true}
-      navigation
+      // navigation
       pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
       // onSwiper={(swiper) => console.log(swiper)}

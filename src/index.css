@@ -384,7 +384,21 @@ a, span{
 /* ========= body component =============*/
 
 /* swiper css override */
-
+.swiper-pagination-fraction, .swiper-pagination-custom, .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal {
+    bottom: 13% !important;
+    left: -41% !important;
+    width: 100%;
+}
+.swiper-pagination-bullet-active {
+    background: black !important;
+}
+.swiper-pagination-bullet {
+    width: 10px !important;
+    height: 10px !important;
+}
+.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: 4px !important
+}
 /* swiper css override */
 
 /* custom scrollbar */

@@ -3,6 +3,7 @@ import Container from "../../commonComponent/Container";
 import { assets } from "../../../helpers/AssetProvider";
 import Slider from "../../commonComponent/Slider";
 import { SwiperSlide } from "swiper/react";
+import { Link } from "react-router";
 
 const Banner = () => {
   type bannerTypes = {
@@ -18,14 +19,14 @@ const Banner = () => {
     },
     {
       id: 2,
-      name: "bannerOne",
-      image: assets.bannerRight_1,
+      name: "bannerTwo",
+      image: assets.bannerRight_2,
     },
 
     {
       id: 3,
-      name: "bannerOne",
-      image: assets.bannerRight_2,
+      name: "bannerThree",
+      image: assets.arrival_banner_left,
     },
   ]);
   return (
@@ -37,30 +38,36 @@ const Banner = () => {
               <Slider animationStyle="" paginationActive={true}>
                 {bannerList.map((item) => (
                   <SwiperSlide>
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      className="object-cover w-full h-full rounded"
-                    />
+                    <Link to="/shop">
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        className="object-fit-cover w-full h-[520px] rounded"
+                      />
+                    </Link>
                   </SwiperSlide>
                 ))}
               </Slider>
             </div>
           </div>
           <div className="flex gap-y-6 flex-col h-full">
-            <div className="h-1/2 bg-red-300 rounded">
-              <img
-                src={assets.bannerRight_1}
-                alt={assets.bannerRight_1}
-                className="object-cover w-full h-full"
-              />
+            <div className="h-1/2 rounded bg-red-500">
+              <Link to="/shop" className="h-full">
+                <img
+                  src={assets.bannerRight_1}
+                  alt={assets.bannerRight_1}
+                  className="w-full h-full"
+                />
+              </Link>
             </div>
-            <div className="h-1/2 bg-blue-300 rounded">
-              <img
-                src={assets.bannerRight_2}
-                alt={assets.bannerRight_2}
-                className="object-cover w-full h-full"
-              />
+            <div className="h-1/2 rounded bg-red-300">
+              <Link to="/shop" className="h-full">
+                <img
+                  src={assets.bannerRight_2}
+                  alt={assets.bannerRight_2}
+                  className="object-cover w-full h-full"
+                />
+              </Link>
             </div>
           </div>
         </div>
