@@ -32,8 +32,8 @@ const Banner = () => {
   return (
     <div>
       <Container>
-        <div className="grid grid-cols-3 gap-x-6! ">
-          <div className="col-span-2 h-full rounded overflow-hidden">
+        <div className="grid grid-cols-3 gap-6! ">
+          <div className="col-span-2 h-full rounded overflow-hidden bg-red-400">
             <div className="w-full h-[520px]">
               <Slider animationStyle="" paginationActive={true}>
                 {bannerList.map((item) => (
@@ -42,7 +42,7 @@ const Banner = () => {
                       <img
                         src={item.image}
                         alt={item.name}
-                        className="object-fit-cover w-full h-[520px] rounded"
+                        className="object-cover w-full h-[520px] rounded"
                       />
                     </Link>
                   </SwiperSlide>
@@ -56,7 +56,7 @@ const Banner = () => {
                 <img
                   src={assets.bannerRight_1}
                   alt={assets.bannerRight_1}
-                  className="w-full h-full"
+                  className="w-full h-full "
                 />
               </Link>
             </div>
